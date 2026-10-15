@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>E-WISE App</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="app-body">
+
+<!-- =================== SHELL APLIKASI =================== -->
+<div class="shell" id="shell" aria-hidden="true">
+  <!-- Sidebar (sesuai brief) -->
+  <aside class="sidebar" id="sidebar" aria-label="Navigasi aplikasi">
+    <a class="side-logo" href="index.html" data-logo>
+      <span><b>E-WISE</b><small>Environmental Waste &amp; Safety Intelligence</small></span>
+    </a>
+    <nav class="side-nav" id="sideNav"></nav>
+    <div class="side-foot">
+      <p><span class="dot dot-ok"></span> <span id="sideSensors"></span></p>
+      <p><span class="dot" id="sideRiskDot"></span> <span id="sideRisk"></span></p>
+      <a href="index.html" class="side-exit">⟵ <span data-i18n="shell.exit">Keluar ke beranda</span></a>
+    </div>
+  </aside>
+  <div class="side-scrim" id="sideScrim" hidden></div>
+
+  <!-- Konten -->
+  <div class="main">
+    <header class="topbar">
+      <button type="button" class="icon-btn side-toggle" id="sideToggle" data-i18n-attr="aria-label:shell.menu" aria-controls="sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="page-head">
+        <h1 id="pageTitle">Dashboard</h1>
+        <p id="pageSub" class="caption"></p>
+      </div>
+      <div class="top-tools">
+        <label class="sr-only" for="areaSel" data-i18n="shell.area">Area</label>
+        <select class="pill-select" id="areaSel"></select>
+        <label class="sr-only" for="shiftSel" data-i18n="shell.shift">Shift</label>
+        <select class="pill-select" id="shiftSel"></select>
+        <button type="button" class="pill-btn" id="tutorialBtn">? <span data-i18n="shell.tutorial">Tutorial</span></button>
+        <div class="seg" role="group" data-i18n-attr="aria-label:common.lang">
+          <button type="button" data-lang-btn="id" aria-pressed="true">ID</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Ganti tema">
+          <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <span class="avatar-sm" title="Supervisor">SP</span>
+      </div>
+    </header>
+    <main class="page" id="page" tabindex="-1"></main>
+  </div>
+</div>
+
+<!-- =================== ALUR MASUK (STEP BY STEP) =================== -->
+<div class="stage" id="stage">
+  <ol class="stage-steps" id="stageSteps" aria-label="Alur masuk"></ol>
+
+  <!-- 1. Loading -->
+  <section class="stage-card loading-card" data-stage="loading">
+    <div class="loading-logo" data-logo></div>
+    <h2 data-i18n="loading.title">Menyiapkan E-WISE</h2>
+    <div class="progress"><span id="progressBar"></span></div>
+    <ul class="checks" id="loadChecks"></ul>
+  </section>
+
+  <!-- 2. Pilih area & shift -->
+  <section class="stage-card select-card" data-stage="select" hidden>
+    <h2 id="areaGridLabel" data-i18n="select.title">Mau pantau area mana?</h2>
+    <p class="caption" data-i18n="select.sub"></p>
+    <div class="area-grid" id="areaGrid" role="radiogroup" aria-labelledby="areaGridLabel"></div>
+    <p class="field-label" id="shiftLabel" data-i18n="select.shift">Shift</p>
+    <div class="shift-seg" id="shiftSeg" role="radiogroup" aria-labelledby="shiftLabel"></div>
+    <div class="select-foot">
+      <button type="button" class="link-btn" id="useLast" data-i18n="select.skip">Lewati, pakai pilihan terakhir</button>
+      <button type="button" class="btn btn-primary" id="enterBtn" data-i18n="select.enter">Masuk →</button>
+    </div>
+  </section>
+</div>
+
+<!-- 3. Sambutan (bottom-sheet di HP) -->
+<div class="modal" id="welcome" hidden role="dialog" aria-modal="true" aria-labelledby="welTitle">
+  <div class="modal-card">
+    <div class="wel-art" data-logo></div>
+    <h2 id="welTitle" data-i18n="welcome.title">Selamat datang di E-WISE</h2>
+    <p id="welBody"></p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-outline" id="welSkip" data-i18n="welcome.skip">Lewati</button>
+      <button type="button" class="btn btn-primary" id="welTour" data-i18n="welcome.tour">Mulai tur</button>
+    </div>
+  </div>
+</div>
+
+<!-- 4. Tur singkat -->
+<div class="tour" id="tour" hidden>
+  <div class="tour-spot" id="tourSpot"></div>
+  <div class="tour-pop" id="tourPop" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+    <p class="eyebrow" id="tourOf"></p>
+    <h3 id="tourTitle"></h3>
+    <p id="tourBody"></p>
+    <div class="tour-foot">
+      <button type="button" class="link-btn" id="tourSkip" data-i18n="tour.skip">Lewati tur</button>
+      <button type="button" class="btn btn-primary btn-sm" id="tourNext"></button>
+    </div>
+    <div class="tour-dots" id="tourDots"></div>
+  </div>
+</div>
+
+<script src="assets/js/core.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data-sample.js"></script>
+<script src="assets/js/i18n-app.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

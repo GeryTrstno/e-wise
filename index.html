@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>E-WISE</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="E-WISE — Environmental Waste & Safety Intelligence. Satu dashboard untuk paparan pekerja dan fiber loss di lantai produksi tekstil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="nav.skip">Lompat ke konten</a>
+
+<!-- =================== HEADER =================== -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="logo" href="#dashboard" data-logo aria-label="E-WISE beranda"><span>E-WISE</span></a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Utama">
+      <a href="#dashboard" data-route="dashboard" data-i18n="nav.dashboard">Dashboard</a>
+      <a href="#tentang" data-route="tentang" data-i18n="nav.about">Tentang Kami</a>
+      <a href="#demo" data-route="demo" data-i18n="nav.demo">Demo</a>
+    </nav>
+
+    <div class="header-tools">
+      <div class="seg" role="group" data-i18n-attr="aria-label:common.lang">
+        <button type="button" data-lang-btn="id" aria-pressed="true">ID</button>
+        <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Ganti tema">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn-accent btn-start" href="app.html" data-i18n="nav.start">Mulai →</a>
+      <button type="button" class="nav-burger" id="navBurger" aria-expanded="false" aria-controls="mainNav">
+        <span class="sr-only" data-i18n="nav.menu">Menu</span>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- =================== VIEW: DASHBOARD (Beranda) =================== -->
+<section class="view" data-view="dashboard" aria-labelledby="heroTitle">
+
+  <!-- Hero -->
+  <div class="hero band">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow eyebrow-lime" data-i18n="hero.eyebrow">K3 · Lingkungan · Industri Tekstil</p>
+        <h1 id="heroTitle" data-i18n-html="hero.title">Satu dashboard untuk paparan pekerja dan <span class="hl">fiber loss</span> di lantai produksi.</h1>
+        <p class="hero-sub" data-i18n="hero.sub"></p>
+        <div class="hero-cta">
+          <a class="btn btn-accent" href="app.html" data-i18n="hero.ctaStart">Mulai →</a>
+          <a class="btn btn-ghost-light" href="#demo" data-i18n="hero.ctaDemo">Lihat Demo</a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note"></p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="pv-frame">
+          <div class="pv-tiles">
+            <div class="pv-tile"><span data-i18n="hero.pvPm">Debu (PM)</span><b class="tabnum">165 <small>µg/m³</small></b><i class="bar"><em style="width:82%;background:var(--warn)"></em></i></div>
+            <div class="pv-tile"><span data-i18n="hero.pvApd">Kepatuhan APD</span><b class="tabnum">85%</b><i class="bar"><em style="width:85%"></em></i></div>
+            <div class="pv-tile"><span data-i18n="hero.pvFiber">Fiber loss</span><b class="tabnum hl">2,4%</b><i class="bar"><em style="width:48%;background:var(--c-lime)"></em></i></div>
+          </div>
+          <div class="pv-chart">
+            <p class="pv-chart-label" data-i18n="hero.pvChart">Fiber loss vs debu · 7 hari</p>
+            <svg viewBox="0 0 400 150" preserveAspectRatio="none">
+              <path d="M0 30 H400" stroke="rgba(255,255,255,.25)" stroke-dasharray="5 5"/>
+              <path class="pv-line" d="M10 122 L70 112 L130 116 L190 88 L250 94 L310 62 L390 46" fill="none" stroke="#C8F169" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 132 L70 126 L130 124 L190 106 L250 102 L310 86 L390 72" fill="none" stroke="#86D9AE" stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"/>
+              <circle cx="390" cy="46" r="5" fill="#C8F169"/>
+            </svg>
+          </div>
+        </div>
+        <div class="pv-toast">
+          <p class="pv-toast-t"><span class="dot dot-risk"></span> <span data-i18n="hero.ewTitle">Early warning</span></p>
+          <p data-i18n="hero.ewBody">Area Cutting · debu naik</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Angka -->
+  <div class="wrap">
+    <div class="stats card">
+      <div class="stat"><b class="tabnum">2,86×10<sup>6</sup></b><span data-i18n="stats.s1"></span></div>
+      <div class="stat"><b class="tabnum">≤1,2×10<sup>6</sup></b><span data-i18n="stats.s2"></span></div>
+      <div class="stat"><b class="tabnum">32,1%</b><span data-i18n="stats.s3"></span></div>
+    </div>
+    <p class="caption stats-note" data-i18n="stats.note"></p>
+  </div>
+
+  <!-- Solusi: 4 modul -->
+  <div class="section section-soft" id="solusi">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="sol.eyebrow">Solusi</p>
+        <h2 data-i18n="sol.title">Satu platform. Semua data K3 di satu layar.</h2>
+      </header>
+      <div class="modules">
+        <article class="module card">
+          <div class="module-text">
+            <p class="eyebrow" data-i18n="sol.m1.tag"></p>
+            <h3 data-i18n="sol.m1.title"></h3>
+            <p data-i18n-html="sol.m1.desc"></p>
+            <a href="#demo-2" class="more" data-i18n="sol.link">Lihat cara kerja ›</a>
+          </div>
+          <div class="module-art"><svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 30h60M24 30v6a24 24 0 0 0 48 0v-6"/><circle cx="48" cy="44" r="8"/><path d="M30 66a26 26 0 0 0 36 0M24 76a36 36 0 0 0 48 0"/></svg></div>
+        </article>
+        <article class="module card">
+          <div class="module-text">
+            <p class="eyebrow" data-i18n="sol.m2.tag"></p>
+            <h3 data-i18n="sol.m2.title"></h3>
+            <p data-i18n-html="sol.m2.desc"></p>
+            <a href="#demo-3" class="more" data-i18n="sol.link">Lihat cara kerja ›</a>
+          </div>
+          <div class="module-art"><svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M28 40a20 20 0 0 1 40 0v4H28z"/><path d="M24 44h48M48 20v6"/><rect x="30" y="54" width="14" height="10" rx="5"/><rect x="52" y="54" width="14" height="10" rx="5"/><path d="M44 59h8"/><path d="M26 74c4 4 10 4 14 0M56 74c4 4 10 4 14 0"/></svg></div>
+        </article>
+        <article class="module card">
+          <div class="module-text">
+            <p class="eyebrow" data-i18n="sol.m3.tag"></p>
+            <h3 data-i18n="sol.m3.title"></h3>
+            <p data-i18n-html="sol.m3.desc"></p>
+            <a href="#demo-4" class="more" data-i18n="sol.link">Lihat cara kerja ›</a>
+          </div>
+          <div class="module-art"><svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="22" width="30" height="12" rx="3"/><rect x="16" y="42" width="30" height="12" rx="3"/><rect x="16" y="62" width="30" height="12" rx="3"/><path d="M21 28l3 3 5-5M21 48l3 3 5-5"/><path d="M50 28h10a6 6 0 0 1 6 6v8M50 48h12M50 68h10a6 6 0 0 0 6-6v-8"/><circle cx="74" cy="48" r="8"/></svg></div>
+        </article>
+        <article class="module card">
+          <div class="module-text">
+            <p class="eyebrow" data-i18n="sol.m4.tag"></p>
+            <h3 data-i18n="sol.m4.title"></h3>
+            <p data-i18n-html="sol.m4.desc"></p>
+            <a href="#demo-5" class="more" data-i18n="sol.link">Lihat cara kerja ›</a>
+          </div>
+          <div class="module-art"><svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="18" width="68" height="46" rx="5"/><path d="M38 78h20M48 64v14"/><path d="M30 30h14M32 30l2 24h10l2-24M36 26h6"/><path d="M58 34l6-4 2 7M70 46l-4 6-6-2M56 50l-2-6"/></svg></div>
+        </article>
+      </div>
+
+      <div class="innov band">
+        <div>
+          <p class="eyebrow eyebrow-lime" data-i18n="innov.eyebrow">Inti inovasi</p>
+          <p class="innov-title" data-i18n="innov.title">Data Fusion → Risk Pattern → Early Warning</p>
+        </div>
+        <a class="btn btn-accent" href="#cara-kerja" data-i18n="innov.btn">Lihat alurnya</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cara kerja singkat -->
+  <div class="section" id="cara-kerja">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="how.eyebrow">Cara kerja</p>
+        <h2 data-i18n="how.title"></h2>
+        <p class="sec-sub" data-i18n="how.sub"></p>
+      </header>
+      <ol class="flow">
+        <li class="flow-step"><span class="flow-n">1</span><h3 data-i18n="how.s1t"></h3><p data-i18n="how.s1d"></p>
+          <div class="flow-sources"><span class="chip chip-neutral no-dot">IoT</span><span class="chip chip-neutral no-dot">CV</span><span class="chip chip-neutral no-dot">NLP</span><span class="chip chip-neutral no-dot">Fiber</span></div></li>
+        <li class="flow-step"><span class="flow-n">2</span><h3 data-i18n="how.s2t"></h3><p data-i18n="how.s2d"></p>
+          <code class="flow-code">Cutting · S1 · 10.00–11.00</code></li>
+        <li class="flow-step"><span class="flow-n">3</span><h3 data-i18n="how.s3t"></h3><p data-i18n="how.s3d"></p>
+          <div class="flow-scale"><span class="chip chip-ok">0–0,39</span><span class="chip chip-warn">0,40–0,69</span><span class="chip chip-risk">≥0,70</span></div></li>
+        <li class="flow-step"><span class="flow-n">4</span><h3 data-i18n="how.s4t"></h3><p data-i18n="how.s4d"></p>
+          <div class="flow-sources"><span class="chip chip-risk" data-i18n="preview.high">Tinggi</span></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Preview dashboard -->
+  <div class="section section-soft" id="preview">
+    <div class="wrap preview-grid">
+      <header class="sec-head sec-head-left">
+        <p class="eyebrow" data-i18n="preview.eyebrow">Preview dashboard</p>
+        <h2 data-i18n="preview.title"></h2>
+        <p class="sec-sub" data-i18n="preview.sub"></p>
+        <a class="btn btn-primary" href="app.html" data-i18n="preview.open">Buka aplikasi →</a>
+      </header>
+      <div class="preview card">
+        <span class="chip chip-neutral no-dot sample-tag" data-i18n="preview.sample">Data contoh</span>
+        <div class="kpis">
+          <div class="kpi"><span data-i18n="preview.k1"></span><b class="tabnum" style="color:var(--warn-text)">2,4%</b><small data-i18n="preview.k1s"></small></div>
+          <div class="kpi"><span data-i18n="preview.k2"></span><b class="tabnum" style="color:var(--ok-text)">85%</b><small data-i18n="preview.k2s"></small></div>
+          <div class="kpi"><span data-i18n="preview.k3"></span><b style="color:var(--risk-text)">Poor</b><small data-i18n="preview.k3s"></small></div>
+          <div class="kpi"><span data-i18n="preview.k4"></span><b class="tabnum" style="color:var(--risk-text)">3</b><small data-i18n="preview.k4s"></small></div>
+        </div>
+        <div class="preview-bottom">
+          <div class="risk-tile">
+            <span data-i18n="preview.risk">Risk score</span>
+            <b class="tabnum">0,72</b>
+            <span class="chip chip-risk" data-i18n="preview.high">Tinggi</span>
+          </div>
+          <div class="area-status">
+            <p class="mini-title" data-i18n="preview.areas">Status area produksi</p>
+            <ul>
+              <li><div><b>Cutting</b><small>debu tinggi · LEV di bawah ambang</small></div><span class="chip chip-risk no-dot">0,72</span></li>
+              <li><div><b>Sewing line 2</b><small>APD non-compliant 13%</small></div><span class="chip chip-warn no-dot">0,48</span></li>
+              <li><div><b>Finishing</b><small>semua parameter aman</small></div><span class="chip chip-ok no-dot">0,21</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Area penerapan -->
+  <div class="section" id="area">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="areas.eyebrow">Area penerapan</p>
+        <h2 data-i18n="areas.title"></h2>
+      </header>
+      <ul class="areas">
+        <li><b data-i18n="areas.a1"></b><span data-i18n="areas.a1d"></span></li>
+        <li><b data-i18n="areas.a2"></b><span data-i18n="areas.a2d"></span></li>
+        <li><b data-i18n="areas.a3"></b><span data-i18n="areas.a3d"></span></li>
+        <li><b data-i18n="areas.a4"></b><span data-i18n="areas.a4d"></span></li>
+        <li><b data-i18n="areas.a5"></b><span data-i18n="areas.a5d"></span></li>
+        <li><b data-i18n="areas.a6"></b><span data-i18n="areas.a6d"></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="wrap">
+    <div class="cta band">
+      <div>
+        <h2 data-i18n="cta.title"></h2>
+        <p data-i18n="cta.sub"></p>
+      </div>
+      <a class="btn btn-accent" href="app.html" data-i18n="cta.btn">Mulai →</a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== VIEW: TENTANG KAMI =================== -->
+<section class="view" data-view="tentang" hidden aria-labelledby="aboutTitle">
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="about.eyebrow">Tentang kami</p>
+      <h1 id="aboutTitle" data-i18n="about.title"></h1>
+      <p class="lead" data-i18n="about.lead"></p>
+    </div>
+  </div>
+
+  <!-- Masalah (shortcut Tentang Kami — sesuai brief) -->
+  <div class="section section-tight" id="masalah">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="about.probEyebrow">Masalah</p>
+        <h2 class="prob-title" data-i18n-html="about.probTitle"></h2>
+      </header>
+      <div class="problems">
+        <article class="problem card">
+          <div class="problem-ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="24" r="10"/><path d="M14 56c0-10 7-16 16-16s16 6 16 16"/><path d="M22 30h16v6H22z"/><circle cx="48" cy="20" r="3"/><circle cx="54" cy="28" r="2"/><circle cx="50" cy="12" r="2"/></svg></div>
+          <div>
+            <h3 data-i18n="about.p1t"></h3>
+            <p data-i18n-html="about.p1d"></p>
+            <span class="chip chip-ok no-dot" data-i18n="about.p1s"></span>
+          </div>
+        </article>
+        <article class="problem card">
+          <div class="problem-ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 18h18l4 6h26v28H8z"/><circle cx="32" cy="36" r="5"/><path d="M24 48c1-4 4-6 8-6s7 2 8 6"/></svg></div>
+          <div>
+            <h3 data-i18n="about.p2t"></h3>
+            <p data-i18n-html="about.p2d"></p>
+            <span class="chip chip-ok no-dot" data-i18n="about.p2s"></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cerita + visi misi -->
+  <div class="section section-soft">
+    <div class="wrap story">
+      <div class="story-text">
+        <p class="eyebrow" data-i18n="about.storyEyebrow">Cerita</p>
+        <h2 data-i18n="about.storyTitle"></h2>
+        <p data-i18n="about.story1"></p>
+        <p data-i18n="about.story2"></p>
+      </div>
+      <div class="vm">
+        <div class="vm-card band">
+          <p class="eyebrow eyebrow-lime" data-i18n="about.visiT">Visi</p>
+          <p class="vm-visi" data-i18n="about.visi"></p>
+        </div>
+        <div class="vm-card card">
+          <p class="eyebrow" data-i18n="about.misiT">Misi</p>
+          <ol class="misi">
+            <li data-i18n="about.misi1"></li>
+            <li data-i18n="about.misi2"></li>
+            <li data-i18n="about.misi3"></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standar acuan -->
+  <div class="section" id="standar">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="about.stdEyebrow">Standar acuan</p>
+        <h2 data-i18n="about.stdTitle"></h2>
+      </header>
+      <div class="stds">
+        <div class="std"><b data-i18n="about.std1t"></b><p data-i18n="about.std1d"></p></div>
+        <div class="std"><b data-i18n="about.std2t"></b><p data-i18n="about.std2d"></p></div>
+        <div class="std"><b data-i18n="about.std3t"></b><p data-i18n="about.std3d"></p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tim -->
+  <div class="section section-soft" id="tim">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="about.teamEyebrow">Tim</p>
+        <h2 data-i18n="about.teamTitle">Tim G04</h2>
+        <p class="caption" data-i18n="about.teamNote"></p>
+      </header>
+      <ul class="team">
+        <li class="member card"><div class="avatar">1</div><b data-i18n="about.memberName">Nama anggota</b><span data-i18n="about.r1"></span></li>
+        <li class="member card"><div class="avatar">2</div><b data-i18n="about.memberName">Nama anggota</b><span data-i18n="about.r2"></span></li>
+        <li class="member card"><div class="avatar">3</div><b data-i18n="about.memberName">Nama anggota</b><span data-i18n="about.r3"></span></li>
+        <li class="member card"><div class="avatar">4</div><b data-i18n="about.memberName">Nama anggota</b><span data-i18n="about.r4"></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Perjalanan -->
+  <div class="section" id="perjalanan">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="about.jEyebrow">Perjalanan</p>
+        <h2 data-i18n="about.jTitle"></h2>
+      </header>
+      <ol class="journey">
+        <li class="done"><b data-i18n="about.j1t"></b><p data-i18n="about.j1d"></p></li>
+        <li class="done"><b data-i18n="about.j2t"></b><p data-i18n="about.j2d"></p></li>
+        <li class="now"><b><span data-i18n="about.j3t"></span> <span class="chip chip-ok no-dot" data-i18n="about.now">Sekarang</span></b><p data-i18n="about.j3d"></p></li>
+        <li><b data-i18n="about.j4t"></b><p data-i18n="about.j4d"></p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- =================== VIEW: DEMO =================== -->
+<section class="view" data-view="demo" hidden aria-labelledby="demoTitle">
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="demo.eyebrow">Demo</p>
+      <h1 id="demoTitle" data-i18n="demo.title"></h1>
+      <p class="lead" data-i18n="demo.sub"></p>
+    </div>
+  </div>
+
+  <div class="section section-tight">
+    <div class="wrap">
+      <div class="steps-tabs" role="tablist" id="stepTabs"></div>
+      <div class="step-panel card" id="stepPanel" role="tabpanel"></div>
+    </div>
+  </div>
+
+  <div class="section section-soft">
+    <div class="wrap demo-grid">
+      <div class="video card">
+        <div class="video-box">
+          <svg viewBox="0 0 64 64" width="56" height="56"><circle cx="32" cy="32" r="30" fill="var(--accent)"/><path d="M26 20l18 12-18 12z" fill="var(--on-accent)"/></svg>
+        </div>
+        <div class="video-cap"><b data-i18n="demo.video">Video walkthrough</b><span class="caption" data-i18n="demo.videoNote"></span></div>
+      </div>
+      <div class="colors card">
+        <h3 data-i18n="demo.colorsT">Arti warna</h3>
+        <ul>
+          <li><span class="sw" style="background:var(--ok)"></span><div><b data-i18n="demo.cOk">Hijau</b><span data-i18n="demo.cOkD">Aman</span></div></li>
+          <li><span class="sw" style="background:var(--warn)"></span><div><b data-i18n="demo.cWarn">Kuning</b><span data-i18n="demo.cWarnD"></span></div></li>
+          <li><span class="sw" style="background:var(--risk)"></span><div><b data-i18n="demo.cRisk">Merah</b><span data-i18n="demo.cRiskD"></span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="faq">
+    <div class="wrap faq-grid">
+      <div>
+        <h2 data-i18n="demo.faqT">Pertanyaan umum</h2>
+        <div class="faq" id="faqList"></div>
+      </div>
+      <form class="demo-form card" id="demoForm" novalidate>
+        <h3 data-i18n="demo.formT">Jadwalkan demo langsung</h3>
+        <p class="caption" data-i18n="demo.formSub"></p>
+        <div class="field"><label for="fName" data-i18n="demo.fName">Nama</label><input class="input" id="fName" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="fOrg" data-i18n="demo.fOrg">Perusahaan / instansi</label><input class="input" id="fOrg" name="org" autocomplete="organization"></div>
+        <div class="form-row">
+          <div class="field"><label for="fEmail" data-i18n="demo.fEmail">Email</label><input class="input" id="fEmail" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="fDate" data-i18n="demo.fDate">Tanggal</label><input class="input" id="fDate" name="date" type="date"></div>
+        </div>
+        <div class="field"><label for="fMsg" data-i18n="demo.fMsg">Area</label><textarea class="textarea" id="fMsg" name="msg" data-i18n-attr="placeholder:demo.fMsgPh"></textarea></div>
+        <p class="form-msg" id="formMsg" role="status"></p>
+        <button class="btn btn-primary" type="submit" data-i18n="demo.fSubmit">Kirim permintaan</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =================== FOOTER =================== -->
+<footer class="site-footer band">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <a class="logo logo-light" href="#dashboard" data-logo><span>E-WISE</span></a>
+      <p class="footer-tag" data-i18n="footer.tag"></p>
+      <p data-i18n="footer.desc"></p>
+      <a class="btn btn-accent btn-sm" href="app.html" data-i18n="footer.app">Buka aplikasi</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-h" data-i18n="footer.colNav">Navigasi</p>
+      <a href="#dashboard" data-i18n="nav.dashboard">Dashboard</a>
+      <a href="#tentang" data-i18n="nav.about">Tentang Kami</a>
+      <a href="#demo" data-i18n="nav.demo">Demo</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-h" data-i18n="footer.colMod">Modul</p>
+      <a href="#demo-2">Environmental Monitoring</a>
+      <a href="#demo-3">Computer Vision / APD</a>
+      <a href="#demo-4">HSE Walk-around</a>
+      <a href="#demo-5">Fiber Waste</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-h" data-i18n="footer.colContact">Kontak</p>
+      <p data-i18n="footer.contactNote"></p>
+      <p><span data-i18n="footer.email">Email tim</span>: <span class="selectable">tim.ewise@example.com</span></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p data-i18n="footer.copy"></p>
+    <a href="#top" class="to-top" data-i18n="footer.top">Kembali ke atas ↑</a>
+  </div>
+</footer>
+
+<script src="assets/js/core.js"></script>
+<script src="assets/js/i18n-site.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
